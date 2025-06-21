@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "b555cc25-9b8c-4b02-8d1f-5d998a4b6a89",
+    "name": "Telegram Bot Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Webhook - New Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"detail\": {\"id\": 124,\"status\": {\"status_name\": \"Создан\"},\"total_price_with_discount\": \"64050.80\",\"items\": [{\"product\": {\"name\": \"Ikon Tyres 235/60R18 107T XL Autograph Ice 9 SUV TL\",\"item_number\": \"TS72248\",\"price\": \"16012.70\"},\"quantity\": 4,\"product_supplier_info\": [{\"supplier_info\": {\"name\": \"Медведь\"},\"quantity\": 12}]}],\"first_name\": \"Андрей\",\"last_name\": \"Хаметчин\",\"patronymic\": \"Анварович\",\"email\": \"Lena_bev@mail.ru\",\"tel\": \"89630866770\",\"address\": \"Ул. 250-летия Чел., 44А, 69\",\"unique_token\": \"a5a97665-49f2-45f2-a3e6-8e2cdf0eeb3a\"}}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/webhook/orders",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["webhook", "orders"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Webhook - Feedback",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Иван Иванов\",\"email\": \"ivan@example.com\",\"message\": \"У меня есть вопрос о заказах.\"}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/webhook/feedback",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["webhook", "feedback"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Order Details",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/order/124",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["api", "order", "124"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
